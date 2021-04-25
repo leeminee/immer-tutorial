@@ -19,6 +19,22 @@ const App = () => {
     },
     [form]
   );
+
+  //form 등록을 위한 함수
+  const onSubmit = useCallback((e) => {
+    e.preventDefault();
+    const info = {
+      id: nextId.current,
+      name: form.name,
+      username: form.username,
+    };
+
+    //array에 새 항목 등록
+    setData({
+      ...data,
+      array: data.array.concat(info),
+    });
+  });
 };
 
 export default App;
