@@ -1,17 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useRef, useCallback, useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+const App = () => {
+  const nextId = useRef(1);
+  const [form, setForm] = useState({ name: "", username: "" });
+  const [data, setData] = useState({
+    array: [],
+    uselessValue: null,
+  });
+
+  //input 수정을 위한 함수
+  const onChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setForm({
+        ...form,
+        [name]: [value],
+      });
+    },
+    [form]
   );
-}
+};
 
 export default App;
