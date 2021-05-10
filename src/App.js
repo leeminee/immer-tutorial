@@ -12,6 +12,7 @@ const App = () => {
   //input 수정을 위한 함수
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
+
     setForm(
       produce((draft) => {
         draft[name] = value;
